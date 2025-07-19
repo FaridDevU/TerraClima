@@ -149,8 +149,7 @@ npm run lint:fix     # Corregir errores automáticamente
 ```
 TerraClima/
 ├── 📁 .github/              # Configuración GitHub
-│   └── copilot-instructions.md
-├── 📁 .nuxt/               # Archivos generados (auto)
+├── 📁 .nuxt/               # Archivos generados 
 ├── 📁 assets/              # Recursos estáticos
 │   └── css/main.css        # Estilos post-apocalípticos
 ├── 📁 components/          # Componentes Vue
