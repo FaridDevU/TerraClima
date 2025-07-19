@@ -1,0 +1,378 @@
+/* TerraClima - Estilos Post-Apocalípticos */
+
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap');
+
+/* Variables CSS personalizadas para el tema post-apocalíptico */
+:root {
+  /* Colores principales */
+  --apocalypse-bg: #0a0a0a;
+  --apocalypse-surface: #1a1a1a;
+  --apocalypse-surface-light: #2a2a2a;
+  --apocalypse-border: #404040;
+  
+  /* Colores de humedad */
+  --humidity-critical: #dc2626;
+  --humidity-dangerous: #ea580c;
+  --humidity-warning: #d97706;
+  --humidity-moderate: #65a30d;
+  --humidity-good: #16a34a;
+  --humidity-excellent: #059669;
+  
+  /* Colores de neón */
+  --neon-green: #00ff88;
+  --neon-blue: #00ccff;
+  --neon-orange: #ff6600;
+  --neon-red: #ff3366;
+  
+  /* Texto */
+  --text-primary: #e5e5e5;
+  --text-secondary: #a3a3a3;
+  --text-muted: #666666;
+  
+  /* Fuentes */
+  --font-display: 'Orbitron', monospace;
+  --font-body: 'Exo 2', sans-serif;
+  
+  /* Sombras y efectos */
+  --glow-green: 0 0 20px rgba(0, 255, 136, 0.3);
+  --glow-blue: 0 0 20px rgba(0, 204, 255, 0.3);
+  --glow-red: 0 0 20px rgba(255, 51, 102, 0.3);
+  --shadow-harsh: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Reset y base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  background: var(--apocalypse-bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+body {
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+    linear-gradient(180deg, var(--apocalypse-bg) 0%, #1a1a1a 100%);
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+/* Tipografía principal */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--neon-green);
+  text-shadow: var(--glow-green);
+  animation: pulse-glow 3s ease-in-out infinite alternate;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--neon-blue);
+}
+
+/* Animaciones */
+@keyframes pulse-glow {
+  from {
+    text-shadow: var(--glow-green);
+  }
+  to {
+    text-shadow: 
+      var(--glow-green),
+      0 0 30px rgba(0, 255, 136, 0.5),
+      0 0 40px rgba(0, 255, 136, 0.3);
+  }
+}
+
+@keyframes scanner-line {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Contenedores principales */
+.apocalypse-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+}
+
+.apocalypse-card {
+  background: rgba(26, 26, 26, 0.9);
+  border: 1px solid var(--apocalypse-border);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-harsh);
+  position: relative;
+  overflow: hidden;
+}
+
+.apocalypse-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+  animation: scanner-line 4s linear infinite;
+}
+
+/* Formularios */
+.apocalypse-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--neon-blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-input {
+  background: rgba(42, 42, 42, 0.8);
+  border: 1px solid var(--apocalypse-border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--neon-green);
+  box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
+  background: rgba(42, 42, 42, 1);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Botones */
+.btn-apocalypse {
+  background: linear-gradient(135deg, var(--neon-green), #00cc73);
+  border: none;
+  border-radius: 6px;
+  padding: 14px 28px;
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-apocalypse:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-green), var(--shadow-harsh);
+}
+
+.btn-apocalypse:active {
+  transform: translateY(0);
+}
+
+.btn-apocalypse:disabled {
+  background: rgba(102, 102, 102, 0.5);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Selects */
+.select-apocalypse {
+  background: rgba(42, 42, 42, 0.8);
+  border: 1px solid var(--apocalypse-border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.select-apocalypse:focus {
+  outline: none;
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 0 2px rgba(0, 204, 255, 0.2);
+}
+
+/* Resultados de humedad */
+.humidity-result {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.humidity-critical {
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.2), rgba(220, 38, 38, 0.05));
+  border: 2px solid var(--humidity-critical);
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
+}
+
+.humidity-dangerous {
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.2), rgba(234, 88, 12, 0.05));
+  border: 2px solid var(--humidity-dangerous);
+  box-shadow: 0 0 30px rgba(234, 88, 12, 0.3);
+}
+
+.humidity-warning {
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.2), rgba(217, 119, 6, 0.05));
+  border: 2px solid var(--humidity-warning);
+  box-shadow: 0 0 30px rgba(217, 119, 6, 0.3);
+}
+
+.humidity-moderate {
+  background: radial-gradient(circle, rgba(101, 163, 13, 0.2), rgba(101, 163, 13, 0.05));
+  border: 2px solid var(--humidity-moderate);
+  box-shadow: 0 0 30px rgba(101, 163, 13, 0.3);
+}
+
+.humidity-good {
+  background: radial-gradient(circle, rgba(22, 163, 74, 0.2), rgba(22, 163, 74, 0.05));
+  border: 2px solid var(--humidity-good);
+  box-shadow: 0 0 30px rgba(22, 163, 74, 0.3);
+}
+
+.humidity-excellent {
+  background: radial-gradient(circle, rgba(5, 150, 105, 0.2), rgba(5, 150, 105, 0.05));
+  border: 2px solid var(--humidity-excellent);
+  box-shadow: 0 0 30px rgba(5, 150, 105, 0.3);
+}
+
+.humidity-value {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  animation: flicker 2s ease-in-out infinite;
+}
+
+.humidity-message {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 255, 136, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--neon-green);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Grid responsivo */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Utilidades */
+.text-center { text-align: center; }
+.text-glow { text-shadow: var(--glow-green); }
+.mt-4 { margin-top: 2rem; }
+.mb-4 { margin-bottom: 2rem; }
+.p-4 { padding: 2rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .apocalypse-container {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .humidity-value {
+    font-size: 3rem;
+  }
+  
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Efectos especiales */
+.glitch {
+  position: relative;
+  animation: glitch 2s linear infinite;
+}
+
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+.terminal-text {
+  font-family: 'Courier New', monospace;
+  color: var(--neon-green);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  border-radius: 4px;
+  border-left: 4px solid var(--neon-green);
+}
