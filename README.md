@@ -380,9 +380,6 @@ npm run generate    # SSG (Static Site Generation)
 - [ ] 🔄 CI/CD pipeline
 - [ ] 📦 Docker containerization
 
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
 ## 👥 Créditos
 
